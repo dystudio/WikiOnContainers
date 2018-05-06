@@ -26,29 +26,10 @@ namespace Aiursoft.Wiki.Models
         public string ArticleContent { get; set; }
         public DateTime CreateTime { get; set; } = DateTime.Now;
 
-        [InverseProperty(nameof(Comment.Article))]
-        [JsonIgnore]
-        public List<Comment> Comments { get; set; }
-
         [JsonIgnore]
         public int? CollectionId { get; set; }
         [JsonIgnore]
         [ForeignKey(nameof(CollectionId))]
         public Collection Collection { get; set; }
-    }
-    public class Comment
-    {
-        [Key]
-        public int CommentId { get; set; }
-        public string CommentContent { get; set; }
-        public DateTime CreateTime { get; set; } = DateTime.Now;
-
-        public int ArticleId { get; set; }
-        [ForeignKey(nameof(ArticleId))]
-        public Article Article { get; set; }
-
-        public string CommentUserId { get; set; }
-        [ForeignKey(nameof(CommentUserId))]
-        public WikiUser CommentUser { get; set; }
     }
 }

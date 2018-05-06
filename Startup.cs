@@ -18,6 +18,9 @@ using Aiursoft.Wiki.Services;
 using Aiursoft.Pylon.Services;
 using Aiursoft.Pylon.Services.ToAPIServer;
 using Aiursoft.Pylon.Models;
+using Aiursoft.Pylon.Services.ToOSSServer;
+using Aiursoft.Pylon.Middlewares;
+using Aiursoft.Pylon.Models.API.OAuthAddressModels;
 
 namespace Aiursoft.Wiki
 {
@@ -37,7 +40,14 @@ namespace Aiursoft.Wiki
 
             services.AddMvc();
 
-            services.AddAiursoftAuth<WikiUser>();
+            services.AddSingleton<AppsContainer>();
+            services.AddSingleton<ServiceLocation>();
+            services.AddScoped<HTTPService>();
+            services.AddScoped<UrlConverter>();
+            services.AddScoped<OSSApiService>();
+            services.AddScoped<StorageService>();
+            services.AddScoped<CoreApiService>();
+            services.AddScoped<OAuthService>();
             services.AddTransient<Seeder>();
         }
 

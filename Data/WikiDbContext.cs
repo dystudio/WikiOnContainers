@@ -16,6 +16,5 @@ namespace Aiursoft.Wiki.Data
         }
         public DbSet<Collection> Collections { get; set; }
         public DbSet<Article> Article { get; set; }
-        public DbSet<Comment> Comment { get; set; }
     }
 }

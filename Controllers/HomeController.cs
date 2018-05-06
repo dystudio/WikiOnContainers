@@ -31,7 +31,6 @@ namespace Aiursoft.Wiki.Controllers
             Seeder seeder,
             ServiceLocation serviceLocation)
         {
-            _signInManager = signInManager;
             _logger = loggerFactory.CreateLogger<HomeController>();
             this._dbContext = _context;
             _seeder = seeder;
