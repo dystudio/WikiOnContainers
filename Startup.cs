@@ -60,7 +60,6 @@ namespace Aiursoft.Wiki
             }
             else
             {
-                //app.UseEnforceHttps();
                 app.UseExceptionHandler("/Error/ServerException");
                 app.UseStatusCodePagesWithReExecute("/Error/Code{0}");
             }
