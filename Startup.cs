@@ -36,7 +36,7 @@ namespace Aiursoft.Wiki
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<WikiDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection")));
+                options.UseSqlite(Configuration.GetConnectionString("DatabaseConnection")));
 
             services.AddMvc();
 
@@ -64,7 +64,6 @@ namespace Aiursoft.Wiki
                 app.UseExceptionHandler("/Error/ServerException");
                 app.UseStatusCodePagesWithReExecute("/Error/Code{0}");
             }
-            app.UseAiursoftAuthenticationFromConfiguration(Configuration, "Wiki");
             app.UseStaticFiles();
             app.UseAuthentication();
             app.UseLanguageSwitcher();
