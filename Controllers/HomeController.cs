@@ -21,13 +21,11 @@ namespace Aiursoft.Wiki.Controllers
 {
     public class HomeController : Controller
     {
-        public readonly SignInManager<WikiUser> _signInManager;
         public readonly ILogger _logger;
         public readonly WikiDbContext _dbContext;
         public readonly Seeder _seeder;
         public readonly ServiceLocation _serviceLocation;
         public HomeController(
-            SignInManager<WikiUser> signInManager,
             ILoggerFactory loggerFactory,
             WikiDbContext _context,
             Seeder seeder,
@@ -39,7 +37,6 @@ namespace Aiursoft.Wiki.Controllers
             _seeder = seeder;
             _serviceLocation = serviceLocation;
         }
-        [AiurForceAuth(preferController: "Home", preferAction: "Index", justTry: true)]
         public async Task<IActionResult> Index()//Title
         {
             var firstArticle = await _dbContext.Article.Include(t => t.Collection).FirstAsync();
@@ -90,14 +87,6 @@ namespace Aiursoft.Wiki.Controllers
                 Code = ErrorType.Success,
                 Message = "Seeded"
             });
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> LogOff()
-        {
-            await _signInManager.SignOutAsync();
-            return this.SignoutRootServer(_serviceLocation.API, new AiurUrl(string.Empty, "Home", nameof(HomeController.Index), new { }));
         }
 
         public IActionResult Error()

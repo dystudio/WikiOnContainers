@@ -8,7 +8,7 @@ using Aiursoft.Wiki.Models;
 
 namespace Aiursoft.Wiki.Data
 {
-    public class WikiDbContext : IdentityDbContext<WikiUser>
+    public class WikiDbContext : DbContext
     {
         public WikiDbContext(DbContextOptions<WikiDbContext> options)
             : base(options)

@@ -10,12 +10,6 @@ using Newtonsoft.Json;
 
 namespace Aiursoft.Wiki.Models
 {
-    public class WikiUser : AiurUserBase
-    {
-        [InverseProperty(nameof(Comment.CommentUser))]
-        public List<Comment> Comments { get; set; }
-    }
-
     public class Collection
     {
         public int CollectionId { get; set; }
