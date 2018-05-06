@@ -1,0 +1,16 @@
+version: '3.6'
+services:
+  db:
+    image: microsoft/mssql-server-linux:2017-latest
+    environment:
+     - ACCEPT_EULA=Y
+     - SA_PASSWORD=yourStrong(!)Password;
+    ports:
+     - "1433:1433"
+
+  web:
+    build: .
+    ports:
+     - "8000:80"
+    depends_on:
+      - db
