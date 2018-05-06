@@ -24,17 +24,14 @@ namespace Aiursoft.Wiki.Controllers
         public readonly ILogger _logger;
         public readonly WikiDbContext _dbContext;
         public readonly Seeder _seeder;
-        public readonly ServiceLocation _serviceLocation;
         public HomeController(
             ILoggerFactory loggerFactory,
             WikiDbContext _context,
-            Seeder seeder,
-            ServiceLocation serviceLocation)
+            Seeder seeder)
         {
             _logger = loggerFactory.CreateLogger<HomeController>();
             this._dbContext = _context;
             _seeder = seeder;
-            _serviceLocation = serviceLocation;
         }
         public async Task<IActionResult> Index()//Title
         {

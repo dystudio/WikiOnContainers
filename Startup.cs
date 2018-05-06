@@ -41,7 +41,7 @@ namespace Aiursoft.Wiki
             services.AddMvc();
 
             services.AddSingleton<AppsContainer>();
-            services.AddSingleton<ServiceLocation>();
+            //services.AddSingleton<ServiceLocation>();
             services.AddScoped<HTTPService>();
             services.AddScoped<UrlConverter>();
             services.AddScoped<OSSApiService>();
@@ -60,7 +60,7 @@ namespace Aiursoft.Wiki
             }
             else
             {
-                app.UseEnforceHttps();
+                //app.UseEnforceHttps();
                 app.UseExceptionHandler("/Error/ServerException");
                 app.UseStatusCodePagesWithReExecute("/Error/Code{0}");
             }
