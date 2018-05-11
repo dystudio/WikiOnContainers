@@ -4,6 +4,8 @@ This is Aiursoft Wiki App independent version. It was not a service of Aiursoft 
 
 Wiki app is based on .NET Core 2.0.
 
+Wiki app allows wiki workers to focus on writing wiki in markdown. It will automatic fetch new wiki updates, compile the markdown to HTML, and print a friendly web page for viewers.
+
 ## How to run
 
 
